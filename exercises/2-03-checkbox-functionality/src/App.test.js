@@ -4,12 +4,18 @@ import { replaceCamelCaseWithSpaces } from './App';
 
 import App from './App';
 
+const initialColor = 'MediumVioletRed';
+const initialButtonLabel = 'Change to Midnight Blue';
+
+const toggledColor = 'MidnightBlue';
+const toggledButtonLabel = 'Change to Medium Violet Red';
+
 test('button has correct initial color', () => {
   render(<App />);
-  const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+  const colorButton = screen.getByRole('button', { name: initialButtonLabel });
 
-  expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
-  expect(colorButton.textContent).toBe('Change to blue');
+  expect(colorButton).toHaveStyle({ backgroundColor: initialColor });
+  expect(colorButton.textContent).toBe(initialButtonLabel);
 
 });
 
@@ -18,20 +24,20 @@ test.skip('debug roles', () => {
     logRoles(container);
 });
 
-test('button turns blue when clicked', () => {
+test(`button turns ${toggledColor} when clicked`, () => {
   render(<App />);
-  const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+  const colorButton = screen.getByRole('button', { name: initialButtonLabel });
 
   fireEvent.click(colorButton);
 
-  expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
-  expect(colorButton).toHaveTextContent('Change to red');
+  expect(colorButton).toHaveStyle({ backgroundColor: toggledColor });
+  expect(colorButton).toHaveTextContent(toggledButtonLabel);
 });
 
 test('initial conditions', () => {
   // check that the button starts out enabled
   render(<App />);
-  const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+  const colorButton = screen.getByRole('button', { name: initialButtonLabel });
 
   // button is enabled on first render
   expect(colorButton).toBeEnabled();
@@ -44,7 +50,7 @@ test('initial conditions', () => {
 
 test('checkbox disables button on 1st click & enables it on 2nd click', () => {
   render(<App />);
-  const colorButton = screen.getByRole('button', { "name": 'Change to blue' });
+  const colorButton = screen.getByRole('button', { "name": initialButtonLabel });
   const checkbox = screen.getByRole('checkbox', { "name": 'Disable button' });
 
   fireEvent.click(checkbox);
@@ -54,34 +60,34 @@ test('checkbox disables button on 1st click & enables it on 2nd click', () => {
   expect(colorButton).toBeEnabled();
 });
 
-test('Checkbox disables red button and sets bg color to gray & reverts to red', () => {
+test(`Checkbox disables ${initialColor} button and sets bg color to gray & reverts to ${initialColor}`, () => {
   render(<App />);
-  const colorButton = screen.getByRole('button', { "name": 'Change to blue' });
+  const colorButton = screen.getByRole('button', { "name": initialButtonLabel });
   const checkbox = screen.getByRole('checkbox', { "name": 'Disable button' });
 
   fireEvent.click(checkbox);
   expect(colorButton).toHaveStyle({ backgroundColor: 'gray' });
 
   fireEvent.click(checkbox);
-  expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
+  expect(colorButton).toHaveStyle({ backgroundColor: initialColor });
 });
 
-test('Checkbox disables blue button and sets bg color to gray & reverts to blue', () => {
+test(`Checkbox disables ${toggledColor} button and sets bg color to gray & reverts to ${toggledColor}`, () => {
   render(<App />);
-  const colorButton = screen.getByRole('button', { "name": 'Change to blue' });
+  const colorButton = screen.getByRole('button', { "name": initialButtonLabel });
   const checkbox = screen.getByRole('checkbox', { "name": 'Disable button' });
 
-  // change button to blue
+  // change button to toggledColor
   fireEvent.click(colorButton);
-  expect(colorButton).toHaveStyle({ backgroundColor: 'blue'})
+  expect(colorButton).toHaveStyle({ backgroundColor: toggledColor})
 
   // when disabled, button should be gray
   fireEvent.click(checkbox);
   expect(colorButton).toHaveStyle({ backgroundColor: 'gray' });
 
-  // when enabled, button should be blue
+  // when enabled, button should be toggledColor
   fireEvent.click(checkbox);
-  expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
+  expect(colorButton).toHaveStyle({ backgroundColor: toggledColor });
 
 });
 
