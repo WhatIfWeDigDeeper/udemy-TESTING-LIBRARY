@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "sundae-server",
+			"path": "sundae-server"
+		},
+		{
+			"name": "2-03-checkbox-functionality",
+			"path": "exercises/2-03-checkbox-functionality"
+		},
+		{
+			"name": "color-button",
+			"path": "finished-projects/color-button"
+		},
+		{
+			"name": "sundaes-on-demand",
+			"path": "finished-projects/sundaes-on-demand"
+		}
+	],
+	"settings": {
+		"jest.disabledWorkspaceFolders": [
+			"udemy-TESTING-LIBRARY",
+			"sundae-server",
+			"color-button",
+			"sundaes-on-demand"
+		]
+	}
+}
