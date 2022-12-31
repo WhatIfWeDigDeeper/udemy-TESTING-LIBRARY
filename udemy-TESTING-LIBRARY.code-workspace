@@ -8,8 +8,12 @@
 			"path": "sundae-server"
 		},
 		{
-			"name": "2-03-checkbox-functionality",
-			"path": "exercises/2-03-checkbox-functionality"
+			"name": "color-button",
+			"path": "exercises/color-button"
+		},
+		{
+			"name": "sundaes-on-demand",
+			"path": "exercises/sundaes-on-demand"
 		},
 		{
 			"name": "color-button",
