@@ -1,27 +1,27 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"path": "../../../../../.."
 		},
 		{
 			"name": "sundae-server",
-			"path": "sundae-server"
+			"path": "../../../../../../sundae-server"
 		},
 		{
 			"name": "color-button",
-			"path": "exercises/color-button"
+			"path": "../../../../../color-button"
 		},
 		{
 			"name": "sundaes-on-demand",
-			"path": "exercises/sundaes-on-demand"
+			"path": "../../../.."
 		},
 		{
 			"name": "color-button",
-			"path": "finished-projects/color-button"
+			"path": "../../../../../../finished-projects/color-button"
 		},
 		{
 			"name": "sundaes-on-demand",
-			"path": "finished-projects/sundaes-on-demand"
+			"path": "../../../../../../finished-projects/sundaes-on-demand"
 		}
 	],
 	"settings": {
