@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { } from 'src/pages/summary';
+import { OrderSummary } from './pages/summary';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <OrderSummary/>
     </div>
   );
 }
