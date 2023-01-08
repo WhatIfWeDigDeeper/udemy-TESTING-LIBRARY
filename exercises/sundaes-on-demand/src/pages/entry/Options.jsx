@@ -3,24 +3,29 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Row } from 'react-bootstrap';
 
-import { ScoopOptions } from './ScoopOptions';
-import { ToppingOptions } from './ToppingOptions';
+import { AlertBanner } from '../common/AlertBanner';
+import { ScoopOption } from './ScoopOption';
+import { ToppingOption } from './ToppingOption';
 
 export function Options({ optionType }) {
   const [items, setItems] = useState([]);
+  const [error, setError] = useState(null)
 
   // optionsType = 'scoops' | 'toppings'
   useEffect(() => {
     axios
      .get(`http://localhost:3030/${optionType}`)
      .then((response) => setItems(response.data))
-     .catch((error) => {
-      // eslint-disable-next-line no-console
-      console.log(error);
-    })
+     .catch((err) => {
+        setError(err);
+      });
   }, [optionType]);
 
-  const ItemComponent = optionType === 'scoops' ? ScoopOptions : ToppingOptions;
+  if (error) {
+    return <AlertBanner message={error.message} />;
+  }
+
+  const ItemComponent = optionType === 'scoops' ? ScoopOption : ToppingOption;
 
   const optionItems = items.map((item) =>
     <ItemComponent
@@ -31,6 +36,8 @@ export function Options({ optionType }) {
 
 
   return (
-    <Row>{optionItems}</Row>
+    <Row>
+      {optionItems}
+    </Row>
   );
 }
