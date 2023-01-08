@@ -31,3 +31,14 @@ QueryType
   - PlaceholderText
   - LabelText
   - DisplayValue
+
+## MSW
+
+Jest
+
+- `.toBe` for primitive types
+- `.toEqual` for objects & arrays
+
+use `find` when expect elem to be async
+
+await waitFor
